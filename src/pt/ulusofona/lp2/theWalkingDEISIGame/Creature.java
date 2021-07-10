@@ -262,6 +262,12 @@ public abstract class Creature {
             case 9:
                 info += "Cão";
                 break;
+            case 12:
+                info += "Coelho";
+                break;
+            case 13:
+                info += "Coelho";
+                break;
         }
         return info;
     }
