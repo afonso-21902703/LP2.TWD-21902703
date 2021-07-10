@@ -581,7 +581,7 @@ public class TWDGameManager {
                 placeHasItemType = item.getTypeId();
 
                 if (playingTeamId == 20) { //  ZOMBIE
-                    if (playingCreatureType.equals("Zombie Coelho")) {
+                    if (playingCreatureType.equals("Coelho (Zombie)")) {
                         return false;
                     }
                     if (placeHasItemType == 5 && playingCreatureType.equals("Zombie Vampiro")) {
@@ -599,7 +599,7 @@ public class TWDGameManager {
                         }
                     }
                 } else { //  VIVO
-                    if (playingCreatureType.equals("Coelho")) {
+                    if (playingCreatureType.equals("Coelho (Vivo)")) {
                         return false;
                     }
                     if (placeHasItemType == 9 && playingCreatureItemTypeId != 8) {
