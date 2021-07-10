@@ -155,10 +155,10 @@ public abstract class Creature {
                 info += "Cão";
                 break;
             case 12:
-                info += "Coelho";
+                info += "Coelho (Vivo)";
                 break;
             case 13:
-                info += "Zombie Coelho";
+                info += "Coelho (Zombie)";
                 break;
         }
         return info;
