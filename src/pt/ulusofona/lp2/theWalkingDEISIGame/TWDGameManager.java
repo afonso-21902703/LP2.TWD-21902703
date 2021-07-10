@@ -747,7 +747,8 @@ public class TWDGameManager {
         //zombies vivos?
         boolean zombiesLeft = false;
         for (Creature creature : creatures) {
-            if (creature.getCreatureTypeId() < 5 && !creature.getIsInSafeHaven() && !creature.getCreatureDiedByPoison()) {
+            if ((creature.getCreatureTypeId() < 5 || creature.getCreatureTypeId() == 13) && !creature.getIsInSafeHaven()
+                    && !creature.getCreatureDiedByPoison() && creature.getX() != -1 && creature.getY() != -1) {
                 zombiesLeft = true;
                 break;
             }
@@ -758,7 +759,8 @@ public class TWDGameManager {
         // alguem vivo?
         boolean humansLeft = false;
         for (Creature creature : creatures) {
-            if (creature.getCreatureTypeId() >= 5 && !creature.getIsInSafeHaven() && !creature.getCreatureDiedByPoison()) {
+            if ((creature.getCreatureTypeId() >= 5 || creature.getCreatureTypeId() == 12) && !creature.getIsInSafeHaven()
+                    && !creature.getCreatureDiedByPoison()) {
                 humansLeft = true;
                 break;
             }
@@ -1108,7 +1110,7 @@ public class TWDGameManager {
         //_________________________________________________________________________________________________
 
         List<String> listos3ZombiesMaisTramados = creatures.stream()
-                .filter(creature -> creature.getTeamId() == 20 && creature.getKilledAlive()!=0)
+                .filter(creature -> creature.getTeamId() == 20 && creature.getKilledAlive() != 0)
                 .sorted(Comparator.comparing(Creature::getKilledAlive)
                         .reversed()
                         .thenComparing(Creature::getId))
@@ -1121,7 +1123,7 @@ public class TWDGameManager {
         //_________________________________________________________________________________________________
 
         List<String> listos3VivosMaisDuros = creatures.stream()
-                .filter(creature -> creature.getTeamId() == 10 && creature.getKilledZombie()!=0)
+                .filter(creature -> creature.getTeamId() == 10 && creature.getKilledZombie() != 0)
                 .sorted(Comparator.comparing(Creature::getKilledZombie)
                         .reversed()
                         .thenComparing(Creature::getId))
@@ -1134,7 +1136,7 @@ public class TWDGameManager {
         //_________________________________________________________________________________________________
 
         List<String> listtiposDeEquipamentoMaisUteis = items.stream()
-                .filter(item -> item.getSavedTimes()!=0)
+                .filter(item -> item.getSavedTimes() != 0)
                 .sorted(Comparator.comparing(Item::getSavedTimes)
                         .reversed()
                         .thenComparing(Item::getId))
