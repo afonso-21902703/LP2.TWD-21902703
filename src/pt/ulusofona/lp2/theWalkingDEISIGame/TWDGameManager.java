@@ -739,6 +739,38 @@ public class TWDGameManager {
     }
 
     public boolean gameIsOver() {
+        //segunda observação end game
+        boolean aconteceu = false;
+        List<Creature> zombiesLeftList = new ArrayList<>();
+        for(Creature creature : creatures) {
+            if (creature.getTeamId() == 20 ){
+                if (creature.getX() != -1 && !creature.getIsInSafeHaven()
+                        && !creature.getCreatureDiedByPoison()){
+                    zombiesLeftList.add(creature);
+                }
+
+            }
+        }
+        for(Creature creature : zombiesLeftList) {
+            if (creature.getCreatureTypeId() == 4 && isDay == true && zombiesLeftList.size() == 1){
+                return true;
+            }
+        }
+        List<Creature> humansLeftList = new ArrayList<>();
+        for(Creature creature : creatures) {
+            if (creature.getTeamId() == 10 ){
+                if (creature.getX() != -1 && !creature.getIsInSafeHaven()
+                        && !creature.getCreatureDiedByPoison()){
+                    humansLeftList.add(creature);
+                }
+
+            }
+        }
+        for(Creature creature : humansLeftList) {
+            if (creature.getCreatureTypeId() == 8 && isDay == false && humansLeftList.size() == 1){
+                return true;
+            }
+        }
         // 3 dias e 3 noite sem ningume morrer
         if (numberOfTurnsWithNoTransformations == 12) {
             //getGameResults().forEach(System.out::println);
