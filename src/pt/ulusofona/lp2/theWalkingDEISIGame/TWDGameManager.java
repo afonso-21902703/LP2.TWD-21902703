@@ -632,7 +632,7 @@ public class TWDGameManager {
                             if (playingCreatureType.equals("Idoso (Vivo)")) {
                                 item.itemUpdate(xD, yD, false);
                                 playingPickedUpThisRound = true;
-                            } else {
+                            }else {
                                 // must be removed?
                                 item.itemUpdate(-1, -1, false);
                             }
@@ -878,10 +878,12 @@ public class TWDGameManager {
     }
 
     public boolean isDay() {
+        /*
         System.out.println("nextLine = " + nextLine);
         System.out.println("counter = " + counter);
         System.out.println("dia = " + isDay);
         System.out.println(" ");
+        */
         if (this.nextLine == 0) {
             this.counter += 1;
             if (this.counter == 4) {
