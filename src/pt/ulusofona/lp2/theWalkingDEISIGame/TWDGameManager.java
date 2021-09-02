@@ -25,7 +25,8 @@ public class TWDGameManager {
     static int numberOfTurnsPlayed = 0;
     private boolean humanTransformed = false;
     private int numberOfTurnsWithNoTransformations = 0;
-
+    private int counter = 0;
+    private int nextLine = 0;
     public TWDGameManager() {
     }
 
@@ -592,6 +593,7 @@ public class TWDGameManager {
                     }
                     //Destroy item
                     // must be removed?
+                    //AS
                     item.itemUpdate(-1, -1, false);
                     for (Creature creature : creatures) {
                         if (creature.getX() == xO && creature.getY() == yO) {
@@ -631,7 +633,7 @@ public class TWDGameManager {
                             if (playingCreatureType.equals("Idoso (Vivo)")) {
                                 item.itemUpdate(xD, yD, false);
                                 playingPickedUpThisRound = true;
-                            } else {
+                            }else {
                                 // must be removed?
                                 item.itemUpdate(-1, -1, false);
                             }
@@ -877,30 +879,33 @@ public class TWDGameManager {
     }
 
     public boolean isDay() {
-        switch (numberOfTurnsPlayed) {
-            case 0:
-            case 1:
-            case 4:
-            case 5:
-            case 8:
-            case 9:
-            case 12:
-            case 13:
+        /*
+        System.out.println("nextLine = " + nextLine);
+        System.out.println("counter = " + counter);
+        System.out.println("dia = " + isDay);
+        System.out.println(" ");
+        */
+        if (this.nextLine == 0) {
+            this.counter += 1;
+            if (this.counter == 4) {
+                this.counter = 0;
+                this.nextLine = 1;
                 this.isDay = true;
-                break;
-            case 2:
-            case 3:
-            case 6:
-            case 7:
-            case 10:
-            case 11:
-            case 14:
-            case 15:
+
+            } else {
+                this.isDay = true;
+            }
+        } else if (this.nextLine == 1) {
+            this.counter += 1;
+            if (this.counter == 4) {
+                this.counter = 0;
+                this.nextLine = 0;
                 this.isDay = false;
-                break;
-        }
-        return this.isDay;
-    }          //DONE
+            } else {
+                this.isDay = false;
+            }
+        } return this.isDay;
+    }
 
     public int getEquipmentId(int creatureId) {
         for (Creature creature : creatures) {
@@ -981,6 +986,9 @@ public class TWDGameManager {
                 break;
             case 10:
                 equipmentInfo += "Beskar Helmet";
+                break;
+            case 11:
+                equipmentInfo += "Bala";
                 break;
         }
         return equipmentInfo;
