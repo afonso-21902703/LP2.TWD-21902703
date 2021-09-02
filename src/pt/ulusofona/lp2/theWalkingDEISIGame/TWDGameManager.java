@@ -607,6 +607,9 @@ public class TWDGameManager {
                     if (placeHasItemType == 9 && playingCreatureItemTypeId != 8) {
                         return false; //nao pode apanhar antidoto se n tiver frasco de veneno
                     }
+                    if (placeHasItemType == 11 && playingCreatureItemTypeId != 2) {
+                        return false; //nao pode apanhar bala se n tiver pistola
+                    }
                     for (Creature creature : creatures) {
                         if (creature.getX() == xO && creature.getY() == yO) {
                             if (creature.getItem() != -1) {
