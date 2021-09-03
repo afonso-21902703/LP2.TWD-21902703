@@ -60,6 +60,9 @@ public class Item {
         this.y = y;
         this.itemAvailable = itemAvailable;
     }
+    public void increaseItemUses() {
+        this.itemUses = 3;
+    }
 
     public void setItemAvailable(boolean itemAvailable) {
         this.itemAvailable = itemAvailable;

@@ -612,7 +612,7 @@ public class TWDGameManager {
                     }
                     for (Creature creature : creatures) {
                         if (creature.getX() == xO && creature.getY() == yO) {
-                            if (creature.getItem() != -1) {
+                            if (creature.getItem() != -1 && (creature.getItem() != 2 && placeHasItemType == 11)) {
                                 //human drops
                                 for (Item itemToChange : items) {
                                     if (itemToChange.getId() == creature.itemIdEquipped) {
@@ -621,9 +621,18 @@ public class TWDGameManager {
                                 }
                             }
                             //human pick up
-                            creature.setItem(placeHasItemType);
-                            creature.setItemIdEquipped(placeHasItemId);
-                            creature.addNumberOfItemsPickedUp();
+                            if(placeHasItemType != 11) {
+                                creature.setItem(placeHasItemType);
+                                creature.setItemIdEquipped(placeHasItemId);
+                                creature.addNumberOfItemsPickedUp();
+                            }
+                            if (item.getTypeId() == 11) {
+                                if (playingCreatureItemTypeId == 2 ) {
+                                    //System.out.printf("Before reload " + item.getItemUses());
+                                    item.increaseItemUses(); // recarrega pistola
+                                    //System.out.printf("After reload " + item.getItemUses());
+                                }
+                            }
                             if (item.getTypeId() == 8) { // get veneno
                                 if (item.getItemUses() == 1) {
                                     creature.setCreatureIsPoisoned(3); // 3 turns to live
