@@ -627,8 +627,8 @@ public class TWDGameManager {
                             }
                             if (item.getTypeId() == 11 && playingCreatureItemTypeId == 2) {
                                 System.out.println("encontrou bala");
-                                if (playingCreatureItemTypeId == 2 && item.getItemUses() >= 3 ) {
-                                    System.out.println("pistola cheia. item id" + playingCreatureItemTypeId);
+                                if (playingCreatureItemTypeId == 2 && item.getItemUses() == 3 ) {
+                                    System.out.println("pistola cheia. item id " + playingCreatureItemTypeId);
                                     System.out.println("item uses " + item.getItemUses());
                                     return false;
                                 }else{
@@ -636,6 +636,7 @@ public class TWDGameManager {
                                     System.out.println("pistola cheia. item id " + playingCreatureItemTypeId);
                                     System.out.println("item uses " + item.getItemUses());
                                     item.increaseItemUses();// recarrega pistola
+                                    System.out.println("item uses " + item.getItemUses());
                                 }
                             }
                             if (item.getTypeId() == 8) { // get veneno
