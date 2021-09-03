@@ -41,7 +41,7 @@ public class Item {
                 itemUses = 1;
                 break;
             case 2:
-                itemUses = 3;
+                this.itemUses = 3;
                 break;
             case 7:
                 itemUses = 3;

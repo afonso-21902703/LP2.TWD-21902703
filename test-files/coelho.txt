@@ -2,11 +2,11 @@
 20
 7
 1 : 8 : Freddie M. : 3 : 3
-2 : 5 : Jackie Chan : 3 : 4
+2 : 5 : Jackie Chan : 1 : 5
 3 : 6 : Alice : 2 : 6
 4 : 4 : Ashpire : 2 : 2
 5 : 9 : Sam : 1 : 1
-6 : 0 : Paciente Zero : 4 : 4
+6 : 0 : Paciente Zero : 5 : 1
 7 : 12 : Coelho : 1 : 2
 5
 -1 : 0 : 0 : 0

@@ -135,7 +135,6 @@ public class TWDGameManager {
             int yGotten = Integer.parseInt(arrOfStr[3]);
             items.add(new Item(idGotten, typeGotten, xGotten, yGotten));
         }
-
         for (int safeHavensRead = 0; safeHavensRead < safeHavensToBeRead; safeHavensRead++) {
             String str = content[5 + creaturesToBeRead + itemsToBeRead + safeHavensRead];
             String[] arrOfStr = str.split(" : ");
@@ -626,10 +625,16 @@ public class TWDGameManager {
                                 creature.setItemIdEquipped(placeHasItemId);
                                 creature.addNumberOfItemsPickedUp();
                             }
-                            if (item.getTypeId() == 11) {
-                                if (playingCreatureItemTypeId == 2 && item.getItemUses() == 3 ) {
+                            if (item.getTypeId() == 11 && playingCreatureItemTypeId == 2) {
+                                System.out.println("encontrou bala");
+                                if (playingCreatureItemTypeId == 2 && item.getItemUses() >= 3 ) {
+                                    System.out.println("pistola cheia. item id" + playingCreatureItemTypeId);
+                                    System.out.println("item uses " + item.getItemUses());
                                     return false;
-                                }else if(playingCreatureItemTypeId == 2){
+                                }else{
+                                    System.out.println("recarregou " + playingCreatureItemTypeId);
+                                    System.out.println("pistola cheia. item id " + playingCreatureItemTypeId);
+                                    System.out.println("item uses " + item.getItemUses());
                                     item.increaseItemUses();// recarrega pistola
                                 }
                             }
