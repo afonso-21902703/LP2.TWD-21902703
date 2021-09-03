@@ -891,12 +891,6 @@ public class TWDGameManager {
     }
 
     public boolean isDay() {
-        /*
-        System.out.println("nextLine = " + nextLine);
-        System.out.println("counter = " + counter);
-        System.out.println("dia = " + isDay);
-        System.out.println(" ");
-        */
         if (this.nextLine == 0) {
             this.counter += 1;
             if (this.counter == 4) {

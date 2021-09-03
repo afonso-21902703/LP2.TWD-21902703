@@ -23,7 +23,7 @@ public class Idoso extends Creature {
     }
 
     public Boolean moveCreature(int xD, int yD, boolean isDay) {
-        if (!isDay && this.teamId == 10) {
+        if (isDay && this.teamId == 10) {
             return false;
         }
         for (int i = 0; i <= range; i++) {
