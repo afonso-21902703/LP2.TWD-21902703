@@ -621,9 +621,6 @@ public class TWDGameManager {
                                 }
                             }
                             //human pick up
-                            if(creature.getCreatureTypeId() == 5 && placeHasItemType != -1) {
-                                return false;
-                            }
                             if(placeHasItemType != 11) {
                                 creature.setItem(placeHasItemType);
                                 creature.setItemIdEquipped(placeHasItemId);
