@@ -627,10 +627,10 @@ public class TWDGameManager {
                                 creature.addNumberOfItemsPickedUp();
                             }
                             if (item.getTypeId() == 11) {
-                                if (playingCreatureItemTypeId == 2 ) {
-                                    //System.out.printf("Before reload " + item.getItemUses());
-                                    item.increaseItemUses(); // recarrega pistola
-                                    //System.out.printf("After reload " + item.getItemUses());
+                                if (playingCreatureItemTypeId == 2 && item.getItemUses() == 3 ) {
+                                    return false;
+                                }else if(playingCreatureItemTypeId == 2){
+                                    item.increaseItemUses();// recarrega pistola
                                 }
                             }
                             if (item.getTypeId() == 8) { // get veneno
