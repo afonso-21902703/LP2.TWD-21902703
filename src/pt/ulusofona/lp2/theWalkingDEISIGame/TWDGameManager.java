@@ -446,6 +446,9 @@ public class TWDGameManager {
                             //zombie killed
                             for (Item item : items) {
                                 if (item.getId() == playingCreatureItemId) {
+                                    if(item.getItemUses() == 0) {
+                                        return false;
+                                    }
                                     item.useItem();
                                     System.out.println("usou item ID " + playingCreatureItemTypeId);
                                     System.out.println("item uses left" + item.getItemUses());
@@ -519,9 +522,15 @@ public class TWDGameManager {
                             //humano mata zombie em retaliacao
                             for (Item item : items) {
                                 if (item.getId() == targetCreatureItemId) {
-                                    item.useItem();
-                                    //add statistic item
-                                    item.addSavedTimes();
+                                    if(item.getItemUses() == 0) {
+                                        humanKilled = true;
+                                        humanTransformed = true;
+                                        break;
+                                    }else{
+                                        item.useItem();
+                                        //add statistic item
+                                        item.addSavedTimes();
+                                    }break;
                                 }
                             }
                             //add statistic killed
