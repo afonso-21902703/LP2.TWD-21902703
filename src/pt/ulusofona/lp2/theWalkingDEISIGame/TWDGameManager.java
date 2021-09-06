@@ -443,10 +443,12 @@ public class TWDGameManager {
                         case 2:
                         case 6:
                         case 10:
-                            //zombue killed
+                            //zombie killed
                             for (Item item : items) {
                                 if (item.getId() == playingCreatureItemId) {
                                     item.useItem();
+                                    System.out.println("usou item ID " + playingCreatureItemTypeId);
+                                    System.out.println("item uses left" + item.getItemUses());
                                 }
                             }
                             // Stastics killed
@@ -626,17 +628,21 @@ public class TWDGameManager {
                                 creature.addNumberOfItemsPickedUp();
                             }
                             if (item.getTypeId() == 11 && playingCreatureItemTypeId == 2) {
-                                System.out.println("encontrou bala");
-                                if (playingCreatureItemTypeId == 2 && item.getItemUses() == 3 ) {
-                                    System.out.println("pistola cheia. item id " + playingCreatureItemTypeId);
-                                    System.out.println("item uses " + item.getItemUses());
-                                    return false;
-                                }else{
-                                    System.out.println("recarregou " + playingCreatureItemTypeId);
-                                    System.out.println("pistola cheia. item id " + playingCreatureItemTypeId);
-                                    System.out.println("item uses " + item.getItemUses());
-                                    item.increaseItemUses();// recarrega pistola
-                                    System.out.println("item uses " + item.getItemUses());
+                                System.out.println("olka");
+                                for (Item charItem : items) {
+                                    if (charItem.getId() == playingCreatureItemId) {
+                                        System.out.println("encontrou bala");
+                                        System.out.println("item uses " + charItem.getItemUses());
+                                        if (charItem.getItemUses() == 3) {
+                                            System.out.println("item uses " + charItem.getItemUses());
+                                            System.out.println("está carregada");
+                                            return false;
+                                        }else if(charItem.getItemUses() < 3){
+                                            charItem.increaseItemUses();// recarrega pistola
+                                            System.out.println("recarregou " + playingCreatureItemTypeId);
+                                            System.out.println("item uses " + charItem.getItemUses());
+                                        }
+                                    }
                                 }
                             }
                             if (item.getTypeId() == 8) { // get veneno

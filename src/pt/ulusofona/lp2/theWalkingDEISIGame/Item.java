@@ -8,7 +8,7 @@ public class Item {
     private int typeId;
     private int x;
     private int y;
-    private int itemUses = 9001; //It's Over Nine Thousand!
+    private int itemUses = 3;
 
     // 3 parte
     private int savedTimes = 0;
@@ -41,7 +41,7 @@ public class Item {
                 itemUses = 1;
                 break;
             case 2:
-                this.itemUses = 3;
+                itemUses = 3;
                 break;
             case 7:
                 itemUses = 3;
@@ -63,7 +63,6 @@ public class Item {
     public void increaseItemUses() {
         this.itemUses = 3;
     }
-
     public void setItemAvailable(boolean itemAvailable) {
         this.itemAvailable = itemAvailable;
     }
