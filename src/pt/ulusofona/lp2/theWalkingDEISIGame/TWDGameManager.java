@@ -621,7 +621,7 @@ public class TWDGameManager {
                     }
                     for (Creature creature : creatures) {
                         if (creature.getX() == xO && creature.getY() == yO) {
-                            if (creature.getItem() != -1 && (creature.getItem() != 2 && placeHasItemType == 11)) {
+                            if (creature.getItem() != -1 || (creature.getItem() != 2 && placeHasItemType == 11)) {
                                 //human drops
                                 for (Item itemToChange : items) {
                                     if (itemToChange.getId() == creature.itemIdEquipped) {
