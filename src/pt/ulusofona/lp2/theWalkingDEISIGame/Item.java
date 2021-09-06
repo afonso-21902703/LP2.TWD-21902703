@@ -61,7 +61,7 @@ public class Item {
         this.itemAvailable = itemAvailable;
     }
     public void increaseItemUses() {
-        this.itemUses = 3;
+        this.itemUses++;
     }
     public void setItemAvailable(boolean itemAvailable) {
         this.itemAvailable = itemAvailable;
