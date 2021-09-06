@@ -552,7 +552,6 @@ public class TWDGameManager {
         for (Item item : items) {
             switch (item.getTypeId()) {
                 case 0:
-                case 2:
                 case 7:
                 case 8:
                     if (item.getItemUses() <= 0) {
@@ -628,7 +627,7 @@ public class TWDGameManager {
                                 creature.addNumberOfItemsPickedUp();
                             }
                             if (item.getTypeId() == 11 && playingCreatureItemTypeId == 2) {
-                                System.out.println("olka");
+                                System.out.println("ola");
                                 for (Item charItem : items) {
                                     if (charItem.getId() == playingCreatureItemId) {
                                         System.out.println("encontrou bala");
@@ -659,7 +658,7 @@ public class TWDGameManager {
                                 playingPickedUpThisRound = true;
                             }else {
                                 // must be removed?
-                                item.itemUpdate(-1, -1, false);
+                                    item.itemUpdate(-1, -1, false);
                             }
                         }
                     }
