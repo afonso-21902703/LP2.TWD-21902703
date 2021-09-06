@@ -522,15 +522,9 @@ public class TWDGameManager {
                             //humano mata zombie em retaliacao
                             for (Item item : items) {
                                 if (item.getId() == targetCreatureItemId) {
-                                    if(item.getItemUses() == 0) {
-                                        humanKilled = true;
-                                        humanTransformed = true;
-                                        break;
-                                    }else{
-                                        item.useItem();
-                                        //add statistic item
-                                        item.addSavedTimes();
-                                    }break;
+                                    item.useItem();
+                                    //add statistic item
+                                    item.addSavedTimes();
                                 }
                             }
                             //add statistic killed
